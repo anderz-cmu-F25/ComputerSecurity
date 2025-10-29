@@ -1,0 +1,6 @@
+proj2_inject3
+8.0.41-0ubuntu0.20.04.1
+HINT,SECRET,foo,inject3_users
+hnfwkwdkkv
+
+https://portswigger.net/web-security/sql-injection/union-attacks

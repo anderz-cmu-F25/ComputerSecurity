@@ -1,0 +1,11 @@
+# Your answer MUST specify one MAC address per line
+# For example:
+# 0f:0f:0f:0f:0f:0f
+# 1e:1e:1e:1e:1e:1e
+#
+# Write your answer starting from the next line
+02:42:ac:be:26:87
+02:42:ac:30:9c:ef
+02:42:ac:0e:0f:6f
+02:42:ac:db:f4:45
+02:42:ac:30:9c:ef
